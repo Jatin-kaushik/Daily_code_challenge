@@ -11,6 +11,7 @@ public class Knight_tour {
         int c = scn.nextInt();
         int [][] chess = new int[size][size];
         printKnightsTour(chess, r, c, 1); // 1st position pe khdei h to vo move
+        scn.close();
     }
 
     public static void printKnightsTour(int[][] chess, int r, int c, int upcomingMove) {
