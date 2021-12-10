@@ -2,8 +2,6 @@ package OOPS_JAVA;
 
 import java.io.*;
 
-import OOPS_JAVA.LinkedList.linkedlist;
-
 public class mergetwosortedll {
     public static class Node {
         int data;
