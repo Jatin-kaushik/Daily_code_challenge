@@ -1,0 +1,19 @@
+x = int(input())
+y = int(input())
+
+if x > y:
+    greater = x
+else:
+    greater = y
+
+while(True):
+    if((greater % x == 0) and (greater % y == 0)):
+        lcm = greater
+        break
+    greater += 1
+
+res = []
+res.append(int(lcm/x) -1)
+res.append(int(lcm/y) -1)
+for i in res:
+  print(i, end = " ")
