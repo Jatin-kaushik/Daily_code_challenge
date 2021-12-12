@@ -333,35 +333,35 @@ public class kreverse {
     public void kReverse(int k) {
       // write your code here
         LinkedList prev = null;
-        LinkedList curr = null;
-        int div = this.size/k;
-        int size = this.size;
-        int iter = div*k;
-        int iterations = 1;
-        Node temp = this.head;
-        while(this.size >0){
-            curr = new LinkedList();
-            for(int i = 0 ; i<k ; i++){
-                int val = this.getFirst();
-                this.removeFirst();
-                curr.addFirst(val);
-                iterations++;
-                temp = temp.next;
+        while(this.size>0){
+            LinkedList curr = new LinkedList();
+            if(this.size >= k){
+                for(int i =0; i <k ;i++){
+                    int val = this.getFirst();
+                    this.removeFirst();
+                    curr.addFirst(val);
+                }
+            }
+            else{
+                int r_s = this.size;
+                for(int i = 0; i <r_s; i++){
+                    int val = this.getFirst();
+                    this.removeFirst();
+                    curr.addLast(val);
+                    }
             }
             if(prev == null){
                 prev = curr;
-            }
+            }            
             else{
                 prev.tail.next = curr.head;
                 prev.tail = curr.tail;
-                prev.size = prev.size + curr.size;
+                prev.size += curr.size;
             }
         }
-        // while(iterations!= size){
-        //     int val = temp.data;
-        //     temp = temp.next;
-        //     prev.addLast(val);
-        // }
+        this.head = prev.head;
+        this.tail = prev.tail;
+        this.size = prev.size;
     }
   }
 
