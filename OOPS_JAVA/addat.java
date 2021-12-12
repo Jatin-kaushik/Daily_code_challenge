@@ -117,7 +117,7 @@ public class addat {
             node.data = val;
             Node temp = head;
             for (int i = 0; i < idx -1; i++){
-                temp = temp.next; \\ ye loop agr 2nd pe add krna h to 1 pe hi ruk jayega          
+                temp = temp.next;   //ye loop agr 2nd pe add krna h to 1 pe hi ruk jayega          
             }
             node.next = temp.next;
             temp.next = node;

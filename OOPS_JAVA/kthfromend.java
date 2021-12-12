@@ -205,7 +205,7 @@ public class kthfromend {
         Node temp = head;
         Node ans = head;
         int i  = 1;
-        int j  = 1;
+        // int j  = 1; // ye bss shauk ke lie chaie baki ans.next kaam kr rha h
         while(temp.next != null){
             if (i<k){
                 temp = temp.next;
@@ -215,7 +215,7 @@ public class kthfromend {
                 temp = temp.next;
                 ans = ans.next;
                 i++;
-                j++;
+                // j++;
             }
         }
         return ans.data;
