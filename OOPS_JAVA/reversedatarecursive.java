@@ -2,7 +2,7 @@ package OOPS_JAVA;
 
 import java.io.*;
 
-public class reversepointerrecursive {
+public class reversedatarecursive {
   public static class Node {
     int data;
     Node next;
@@ -378,22 +378,24 @@ public class reversepointerrecursive {
       System.out.println();
     }
  
-    private void reversePRHelper(Node node){
-      // write your code here
-      if (node.next == null){
-          return;
+    private void reverseDRHelper(Node right, int floor){
+        if (right == null){
+            return;
+        }
+        reverseDRHelper(right.next, floor +1);
+      // Swap left and right and move left
+      if (floor < size/2){// mid tk swap krenge
+        int temp = right.data;
+        right.data= left.data;
+        left.data= temp;
+        left = left.next; 
       }
-      reversePRHelper(node.next);
-      node.next.next = node;
+          
     }
-
-    public void reversePR(){
-      // write your code here
-      reversePRHelper(head);
-      Node temp = head;
-      head= tail;
-      tail = temp;
-      tail.next = null;
+    Node left = null;
+    public void reverseDR(){
+      left = head;
+      reverseDRHelper(left, 0);
     }
   }
 
@@ -412,7 +414,7 @@ public class reversepointerrecursive {
     int b = Integer.parseInt(br.readLine());
 
     l1.display();
-    l1.reversePR();
+    l1.reverseDR();
     l1.addLast(a);
     l1.addFirst(b);
     l1.display();
