@@ -1,3 +1,4 @@
+package Sorting;
 import java.util.Scanner;
 //
 public class Sort01 {

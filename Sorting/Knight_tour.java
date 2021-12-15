@@ -1,3 +1,4 @@
+package Sorting;
 // Input1 Size of chess Board, input2 row, input 3 column 
 // 4 ==> 4*4 chess size , row,col starting position of chess
 import java.util.*;

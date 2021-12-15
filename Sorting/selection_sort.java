@@ -1,3 +1,4 @@
+package Sorting;
 // in every iteration we are focusing upon minimum element in rem. unsorted array and swapping with iteration number
 
 import java.util.*;
