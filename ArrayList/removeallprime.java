@@ -1,5 +1,7 @@
 package ArrayList;
 
+import java.util.*;
+
 public class removeallprime {
     public static boolean isprime(int number){
         boolean flag = true;
@@ -30,6 +32,7 @@ public class removeallprime {
 		for(int i = 0 ; i < n; i++){
 			al.add(scn.nextInt());
 		}
+        scn.close();
 		solution(al);
 		System.out.println(al);
 	}
