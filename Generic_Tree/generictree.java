@@ -56,6 +56,40 @@ public class generictree {
         }
     }
 
+
+    public static void levelorderzigzag(Node root){
+        Queue<Node> queue = new ArrayDeque<>();
+        Queue<Node> cqueue = new ArrayDeque<>();
+        queue.add(root);
+        int i = 0;
+        while(queue.size()>0){
+            Node temp = queue.remove();
+            System.out.print(temp.data + " ");
+            for(Node child : temp.children){
+                cqueue.add(child);
+            }
+
+            if (queue.size() == 0){
+                i+=1;
+                System.out.println(i + "." + i%2);
+                if(i%2 != 0){                    
+                    Stack<Node> stk = new Stack<>(); 
+                    while (!cqueue.isEmpty()) { 
+                        stk.add(cqueue.peek()); 
+                        cqueue.remove(); 
+                    } 
+                    while (!stk.isEmpty()) { 
+                        cqueue.add(stk.peek()); 
+                        stk.pop(); 
+                    }
+                }
+                queue = cqueue;
+                cqueue = new ArrayDeque<>();
+                System.out.println(".");
+            }
+        }
+    }
+
     public static void main(String[] args) {
         // Write your code here
         Node root = new Node(10);
@@ -94,6 +128,7 @@ public class generictree {
         eighty.children.add(hundredtwenty);
         
         levelorderlinewise(root);
+        levelorderzigzag(root);
     }
 } 
 
