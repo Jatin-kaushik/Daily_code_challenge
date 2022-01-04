@@ -24,6 +24,37 @@ public class generictree {
         }
         System.out.println(".");
     }
+    public static void levelorderlinewise(Node root){
+    //     Queue<Node> queue = new ArrayDeque<>();
+    //     queue.add(root);
+    //     queue.add(new Node(-99999));
+    //     while(queue.size()>0){
+    //         Node temp = queue.remove();
+    //         if (temp.data != -99999) System.out.print(temp.data + " ");
+    //         else System.out.println(".");
+            
+    //         for(Node child: temp.children){
+    //             queue.add(child);
+    //         }
+    //         queue.add(new Node(-99999));
+    //     }
+        Queue<Node> queue = new ArrayDeque<>();
+        Queue<Node> cqueue = new ArrayDeque<>();
+        queue.add(root);
+        while(queue.size()>0){
+            Node temp = queue.remove();
+            System.out.print(temp.data + " ");
+            for(Node child : temp.children){
+                cqueue.add(child);
+            }
+
+            if (queue.size() == 0){
+                queue = cqueue;
+                cqueue = new ArrayDeque<>();
+                System.out.println(".");
+            }
+        }
+    }
 
     public static void main(String[] args) {
         // Write your code here
@@ -62,7 +93,7 @@ public class generictree {
         Node hundredtwenty = new Node(120);
         eighty.children.add(hundredtwenty);
         
-        levelorder(root);
+        levelorderlinewise(root);
     }
 } 
 
