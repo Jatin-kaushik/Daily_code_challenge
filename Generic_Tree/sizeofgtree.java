@@ -2,10 +2,13 @@ package Generic_Tree;
 
 import java.util.*;
 
-public class generic_treepep {
+public class sizeofgtree {
+
+
     public static class Node{
         int data;
         ArrayList<Node> children = new ArrayList<>();
+
         Node(int data){
             this.data = data;
         }
@@ -15,18 +18,39 @@ public class generic_treepep {
         Stack<Node> stack = new Stack<>();
         Node root = null;
         for(int val: arr){
-            if(val!=-1){
+            if(val != -1){
                 stack.push(new Node(val));
             }
             else{
                 Node node = stack.pop();
-                if (stack.size()>0){
+                if(stack.size()>0){
                     stack.peek().children.add(node);
                 }
-                else root = node;
+                else{
+                    root = node;
+                }
             }
         }
         return root;
+    }
+
+    public static int sizeoftree(Node root){
+        Queue<Node> queue = new ArrayDeque<>();
+        int size = 0;
+        // if (root.data != null){
+            queue.add(root);
+            size++;
+        // }
+        while(queue.size()>0){
+            // r,p,ac
+            Node temp = queue.remove();
+            for(Node child: temp.children){
+                queue.add(child);
+                size++;
+            }
+        }
+        
+        return size;
     }
 
     public static void levelorder(Node root){
@@ -43,10 +67,18 @@ public class generic_treepep {
         }
         System.out.println(".");
     }
-    
+
     public static void main(String [] args){
-        int [] arr = {10,20,50,-1,60,-1,-1,30,70,-1,80,110,-1,120,-1,-1,90,-1,-1,40,100,-1,-1,-1};
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        int[] arr = new int[n];
+        for(int i =0; i<n; i++){
+            arr[i] = scn.nextInt();
+        }
+        scn.close();
         Node root = construct(arr);
+        int size = sizeoftree(root);
+        System.out.println(size);
         levelorder(root);
-     }
+    }
 }
