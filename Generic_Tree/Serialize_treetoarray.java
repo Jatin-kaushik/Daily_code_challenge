@@ -2,6 +2,7 @@ package Generic_Tree;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Stack;
 
 public class Serialize_treetoarray {
 
@@ -16,8 +17,28 @@ public class Serialize_treetoarray {
 
     public static Node construct(int[] arr){
         Node root = null;
-        public
+        Stack<Node> stack = new Stack<>();
+        for(int val : arr){
+            if (val != -1){
+                stack.push(new Node(val));
+            }
+            else{
+                Node node = stack.pop();
+                if(stack.size()>0){
+                    stack.peek().children.add(node);
+                }
+                else root = node;
+            }
+        }
         return root;
+    }
+
+    public static void serialize(Node root, ArrayList<Integer> arr){
+        arr.add(root.data);
+        for(Node child: root.children){
+            serialize(child, arr);
+        }
+        arr.add(-1);
     }
 
     public static void main(String[] args){
@@ -29,7 +50,8 @@ public class Serialize_treetoarray {
         }
         scn.close();
         Node root = construct(arr);
-        ArrayList<Integer> arr = serialize(root);
-        System.out.println(arr);
+        ArrayList<Integer> res = new ArrayList<>();
+        serialize(root, res);
+        System.out.println(res);
     }
 }
