@@ -1,8 +1,10 @@
 package Generic_Tree;
 
+
 import java.util.*;
 
-public class mirror {
+
+public class removeleaves {
 
     public static class Node{
         int data;
@@ -51,6 +53,19 @@ public static void mirrortree(Node root){
     Collections.reverse(root.children);
 }
 
+    public static void removeleaf(Node root){
+        ArrayList<Node> al = root.children;
+        for(int i = al.size()-1; i>=0; i--){// Loop ulta islie chala rhe h bcz value na miss hojaye andr ki
+            if(al.get(i).children.size() == 0){
+                al.remove(i);
+            }
+        }
+
+        for(Node child:root.children){
+            removeleaf(child);
+        }
+    }
+
     public static void main(String [] args){
         Scanner scn = new Scanner(System.in);
         int n = scn.nextInt();
@@ -60,8 +75,8 @@ public static void mirrortree(Node root){
         }
         scn.close();
         Node root = construct(arr);
-        display(root);
-        mirrortree(root);
+        // display(root);
+        removeleaf(root);
         display(root);
     }
 }
