@@ -52,6 +52,7 @@ public class findbool {
         for(int i = 0; i <n; i++){
             arr[i] = scn.nextInt();
         }
+        int data = scn.nextInt();
         scn.close();
         Node root = construct(arr);
         Boolean res = findintree(root, data);
