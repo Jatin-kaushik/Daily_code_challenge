@@ -7,18 +7,9 @@ public class findpath {
     public static class Node{
         int data;
         ArrayList<Node> children = new ArrayList<>();
-        private static class Node {
-            int data;
-            ArrayList<Node> children = new ArrayList<>();
-          }
         
-          public static void display(Node node) {
-        …    Node root = construct(arr);
-            ArrayList<Integer> path = nodeToRootPath(root, data);
-            System.out.println(path);
-            // display(root);
-          }
-        
+        public Node(int data){
+            this.data = data;
         }
     }
 
@@ -49,7 +40,7 @@ public class findpath {
         for(Node child : root.children){
             ArrayList<Integer> cres = findpathtoroot(child, data);
             if (cres.size() >0 ){
-                cres.add(root.data);
+                cres.add(child.data);
                 return cres;
             }
         }
