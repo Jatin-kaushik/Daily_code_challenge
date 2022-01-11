@@ -61,7 +61,8 @@ public class multisolverobjectheap {
         if (root.data > go.max) {
             go.max2 = go.max;
             go.max = root.data;}
-
+        else if (root.data > go.max2) go.max2 = root.data;
+        
         if(root.data < go.min) go.min = root.data;
 
         for(Node child : root.children){
