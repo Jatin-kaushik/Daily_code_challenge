@@ -42,7 +42,7 @@ public class Lca {
         for(Node child : root.children){
             ArrayList<Integer> cres = findpathtoroot(child, data);
             if (cres.size() >0 ){
-                cres.add(child.data);
+                cres.add(root.data);
                 return cres;
             }
         }
@@ -81,6 +81,26 @@ public class Lca {
         }
         return ans;
     }
+
+    public static int lca1(Node root, int d1, int d2){
+        ArrayList<Integer> al1 = findpathtoroot(root, d1);
+        ArrayList<Integer> al2 = findpathtoroot(root, d2);
+        System.out.println(al1);
+        System.out.println(al2);
+
+        int i = al1.size()-1;
+        int j = al2.size()-1;
+
+        while(i>=0 && j>=0){
+            if(al1.get(i) == al2.get(j)){
+                System.out.println(al1.get(i) + " " +  al2.get(j));
+                i--;
+                j--;
+            }
+            else break;
+        }
+        int lca = al2.get(j+1); return lca;
+    }
     public static void main(String [] args){
         Scanner scn = new Scanner(System.in);
         int n = scn.nextInt();
@@ -92,7 +112,7 @@ public class Lca {
         int data2 =scn.nextInt();
         scn.close();
         Node root = construct(arr);
-        int res = lcaoftree(root, data1, data2);
+        int res = lca1(root, data1, data2);
         System.out.println(res);
     }
 }
