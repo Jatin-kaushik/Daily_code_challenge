@@ -2,8 +2,6 @@ package Generic_Tree;
 
 import java.util.*;
 
-import javax.print.FlavorException;
-
 
 public class aretreemirrorinshape {
     public static class Node{
