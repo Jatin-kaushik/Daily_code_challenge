@@ -2,7 +2,7 @@ package Generic_Tree;
 
 import java.util.*;
 
-public class Is_symmetric {
+public class test {
     public static class Node{
         int data;
         ArrayList<Node> children = new ArrayList<>();
