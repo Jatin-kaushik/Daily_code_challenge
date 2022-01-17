@@ -17,7 +17,7 @@ public class binarytree {
         int state;
     }
 
-    public static Node construct(int [] arr){
+    public static Node construct(Integer [] arr){
     Stack<Pair> stack = new Stack<>();
     Node root = new Node();
     root.data = arr[0];
@@ -85,9 +85,13 @@ public class binarytree {
     public static void main(String [] args){
         Scanner scn = new Scanner(System.in);
         int n = scn.nextInt();
-        int [] arr = new int[n];
+        String[] values = scn.nextLine().split(" ");
+        Integer [] arr = new Integer[n];
         for(int i =0; i <n ; i++){
-            arr[i] = scn.nextInt();
+            if (values[i].equals("n")){
+                arr[i] = null;
+            }
+            else arr[i] = Integer.parseInt(values[i]);
         }
         scn.close();
         Node root = construct(arr);
