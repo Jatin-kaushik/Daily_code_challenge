@@ -1,13 +1,13 @@
 package Binary_tree;
 
-import java.util.Scanner;
-import java.util.Stack;
+import java.util.*;
+import java.io.*;
 
 
 public class binarytree {
 
     public static class Node{
-        String data;
+        Integer data;
         Node left;
         Node right;
     }
@@ -74,15 +74,15 @@ public class binarytree {
             return;
         }
         String str = " <- " +root.data + " -> ";
-        String lcstr = root.left == null? "." : root.left.data;
-        String rcstr = root.right == null? ".": root.right.data;
+        String lcstr = root.left == null? "." : root.left.data+"";
+        String rcstr = root.right == null? ".": root.right.data+"";
         System.out.println(lcstr + str + rcstr);
         display(root.left);
         display(root.right);
 
     }
 
-    public static void main(String [] args){
+    public static void main(String [] args) throws Exception{
         Scanner scn = new Scanner(System.in);
         int n = scn.nextInt();
         String[] values = scn.nextLine().split(" ");
@@ -94,6 +94,20 @@ public class binarytree {
             else arr[i] = Integer.parseInt(values[i]);
         }
         scn.close();
+
+
+        // BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        // int n = Integer.parseInt(br.readLine());
+        // Integer[] arr = new Integer[n];
+        // String[] values = br.readLine().split(" ");
+        // for (int i = 0; i < n; i++) {
+        // if (values[i].equals("n") == false) {
+        //     arr[i] = Integer.parseInt(values[i]);
+        // } else {
+        //     arr[i] = null;
+        // }
+        // }
+
         Node root = construct(arr);
         display(root);
     }
