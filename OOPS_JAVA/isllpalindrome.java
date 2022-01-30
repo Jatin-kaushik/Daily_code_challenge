@@ -397,7 +397,7 @@ public class isllpalindrome {
         if (right == null){
             return true;
         }
-        boolean res = ISPalindromehelper(right.next);
+        boolean res = ISPalindromehelper(right.next);// null pe khtm true
         if (res == false) return false;
         else if (left.data != right.data) return false;
         else left = left.next; return true;
